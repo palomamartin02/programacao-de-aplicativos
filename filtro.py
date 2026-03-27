@@ -1,8 +1,6 @@
 nomes = ["julia", "alice", "paloma", "mayra", "leticia", "jamilly"]
-letras = 0
+nomes_permitidos = []
 for nome in nomes:
-    letras > 5
-    print(f"Os nomes permitidos são {nome}")
-
-if letras > 5:
-    print("Nomes permitidos.")
+    if len(nome) > 5:
+        nomes_permitidos.append(nome)
+        print(f"{nomes_permitidos}")
