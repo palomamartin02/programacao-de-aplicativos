@@ -50,8 +50,14 @@ while True:
     print("\n1-Cadastrar | 2-Listar | 3-Editar | 4-Excluir | 5-Sair")
     opcao = input("Escolha: ")
     
-    if opcao == '1': criar()
-    elif opcao == '2': ler()
-    elif opcao == '3': atualizar()
-    elif opcao == '4': deletar()
-    elif opcao == '5': break
+    if opcao == '1': 
+        criar()
+    elif opcao == '2': 
+        ler()
+    elif opcao == '3': 
+        atualizar()
+    elif opcao == '4': 
+        deletar()
+    elif opcao == '5': 
+        print("Encerrando Programa...")
+        break
