@@ -10,10 +10,14 @@ def criar():
     cpff = int(input("CPF: "))
     turma = input("Turma: ")
     telefone = int(input("Telefone: "))
-    with open ("matricula.json", 'a') as arquivo:
-        matricula["nome"] = nome_completo,
-        matricula["idad"] = idade,
-        matricula["cpf"] = cpf,
-        matricula["turm"] = turma,
-        matricula["telef"] = telefone, 
-        json.dump(alunos, arquivo, indent=4)
+    aluno = {"nome": nome_completo,
+            "idad": idade,
+            "cpf": cpff,
+            "turm": turma,
+            "telef": telefone, }
+    with open('matricula.json', 'a') as arquivo:
+        json.dump(aluno, matricula.json, ident=4, ensure-ascii=false)
+
+
+def listar_aluno():
+     with open('matricula.json', 'r') as arquivo:
