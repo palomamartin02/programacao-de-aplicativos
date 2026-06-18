@@ -5,8 +5,9 @@ cursor = conexao.cursor()
 
 
 def criar_tabela():
+    print("\n--- CADASTRO DE PROFESSOR ---")
     nome_professor = input("NOME: ")
-    telefone_professor =input("TELEFONE: ")
+    telefone_professor = input("TELEFONE: ")
     materia_professor = input("MATÉRIA: ")
     idade_professor = int(input("IDADE: "))
     cpf_professor = input("CPF: ")
@@ -15,7 +16,7 @@ def criar_tabela():
 
     comando_inserir = f'''
         INSERT INTO professores (nome, telefone, materia, idade, cpf, salario, nome_escola)
-        VALUES ('{nome_professor}', '{telefone_professor}', '{materia_professor}', {idade_professor}, '{cpf_professor}', '{salario_professor}', '{nome_da_escola}')
+        VALUES ('{nome_professor}', '{telefone_professor}', '{materia_professor}', {idade_professor}, '{cpf_professor}', {salario_professor}, '{nome_da_escola}')
     '''
     cursor.execute(comando_inserir)
     conexao.commit()
@@ -25,7 +26,8 @@ def criar_tabela():
 def listar():
     cursor = conexao.cursor()
 
-    cursor.execute("SELECT * FROM professores")
+    # MUDANÇA: Substituí o '*' listando coluna por coluna na ordem correta
+    cursor.execute("**SELECT id, nome, telefone, materia, idade, cpf, salario, nome_escola FROM professores**")
     professores = cursor.fetchall()
 
     print("\n LISTA DE PROFESSORES:  ")
@@ -39,8 +41,6 @@ def listar():
         print(f" Salario {professor[6]} ")
         print(f" Escola {professor[7]}")
         print("-" * 30)
-        
-       
 
 
 def atualizar():
@@ -49,7 +49,8 @@ def atualizar():
 
     id_professor = int(input(" Qual seu ID: "))
 
-    cursor.execute(f'''SELECT * FROM professores WHERE id = {id_professor}''')
+    # MUDANÇA: Substituí o '*' listando coluna por coluna na busca do ID
+    cursor.execute(f'''**SELECT id, nome, telefone, materia, idade, cpf, salario, nome_escola FROM professores** WHERE id = {id_professor}''')
     
     professor = cursor.fetchone()
 
@@ -76,13 +77,11 @@ def atualizar():
 
     cursor.execute(f'''
                     UPDATE professores
-                    SET nome ='{nome_atualizado}', cpf ='{cpf_atualizado}', telefone ='{telefone_atualizado}', idade ={idade_atualizada}, salario ='{salario_atualizado}', nome_escola = '{nome_escola_atualizado}', materia = '{materia_atualizada}'
+                    SET nome ='{nome_atualizado}', cpf ='{cpf_atualizado}', telefone ='{telefone_atualizado}', idade ={idade_atualizada}, salario ={salario_atualizado}, nome_escola = '{nome_escola_atualizado}', materia = '{materia_atualizada}'
                     WHERE id = {id_professor}
                     ''')
     conexao.commit()
     print(" Dados alterados ")
-
-
 
 
 def deletar():
@@ -90,7 +89,6 @@ def deletar():
 
     id_professor = int(input(" Qual ID deseja deletar: " ))
 
-    # VERIFICA SE O PROFESSOR EXISTE
     cursor.execute(f'''SELECT id FROM professores WHERE id = {id_professor}''')
     professor = cursor.fetchone()
 
@@ -100,26 +98,21 @@ def deletar():
         cursor.execute(f'''DELETE FROM professores WHERE id = {id_professor}''')
         conexao.commit()
         print("Professor deletado")
-        conexao.commit()
-        print("deletados")
-
-    
-
 
 
 def menu():
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS professores (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nome TEXT NOT NULL,
-        telefone TEXT,
-        materia TEXT,
-        idade INTEGER,
-        cpf TEXT UNIQUE NOT NULL,
-        salario REAL,
-        nome_escola TEXT
-     )
-''')
+        CREATE TABLE IF NOT EXISTS professores (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL,
+            telefone TEXT,
+            materia TEXT,
+            idade INTEGER,
+            cpf TEXT UNIQUE NOT NULL,
+            salario REAL,
+            nome_escola TEXT
+        )
+    ''')
     conexao.commit()
 
     while True:
@@ -131,7 +124,6 @@ def menu():
         print("5. Sair")
         
         opcao = input("Escolha uma opção: ") 
-
 
         if opcao == '1': criar_tabela() 
         elif opcao == '2': listar()
