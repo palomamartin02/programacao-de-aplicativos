@@ -8,11 +8,3 @@ if nome_do_cupom == "DEV10":
     print("cupom aplicado!", novo_preço)
 else:
     print("cupom invalido", valor_total_da_compra)
-
-
-
-
-
-
-
-
