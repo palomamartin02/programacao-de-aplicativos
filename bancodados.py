@@ -145,7 +145,7 @@ def listar_professores():
         print("Nenhum Professor cadastrado.")
     else:
         for p in todos_professores:
-            print(f"ID: {p[0]} | Nome: {p[1]} | Matéria: {p[3]} | CPF: {p[5]}")
+            print(f"ID: {p[0]} | Nome: {p[1]} | Matéria: {p[3]} | CPF: {p[5]} | Salário: {p[6]} | Escola: {p[7]}")
 
 
 def atualizar_professor():
@@ -229,10 +229,10 @@ def menu():
         
         opcao = input("Escolha uma opção: ")
         
-        if opcao == '1': cadastrar()
-        elif opcao == '2': listar()
-        elif opcao == '3': atualizar()
-        elif opcao == '4': excluir()
+        if opcao == '1': cadastrar_professor()
+        elif opcao == '2': listar_professores()
+        elif opcao == '3': atualizar_professor()
+        elif opcao == '4': excluir_professor()
         elif opcao == '5': break
         else: print("Opção inválida!")
 
