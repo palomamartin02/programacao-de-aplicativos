@@ -5,7 +5,7 @@ def buscar_professor(id_prof):
     cursor = conexao.cursor()
 
 
-    cursor.execute("SELECT nome FROM professores WHERE id = ?", (id_prof)) # falta da vírgula depois de id_prof para indicar que é uma tupla
+    cursor.execute("SELECT nome FROM professores WHERE id = ?", (id_prof)) # Erro: falta da vírgula depois de id_prof para indicar que é uma tupla
     resultado = cursor.fetchone()
     print(resultado)
     conexao.close()

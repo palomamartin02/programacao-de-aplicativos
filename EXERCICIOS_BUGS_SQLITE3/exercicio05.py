@@ -15,7 +15,7 @@ def vincular_aluno_turma():
     finally:
         conexao.close()
 
-# esta faltando um except para identificar um erro de escrita.
+# Erro: esta faltando um except para identificar um erro de escrita.
 
 
 # CODIGO CORRIGIDO

@@ -9,7 +9,7 @@ def cadastrar_turma(nome, id_serie, id_prof):
     conexao.commit()
     conexao.close()
 
-# A linha conexao.close() não é executada. O erro interrompe o programa antes de chegar nela, e a conexão com o banco de dados continua aberta na memória.
+# Erro: A linha conexao.close() não é executada. O erro interrompe o programa antes de chegar nela, e a conexão com o banco de dados continua aberta na memória.
 
 # CODIGO CORRIGIDO
 

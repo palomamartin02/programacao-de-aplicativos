@@ -10,7 +10,7 @@ def inicializar_banco():
                         nome TEXT NOT NULL
                    )
             ''') 
-    #falta o conexao.commit()
+    # Erro: falta o conexao.commit()
     conexao.close()
 
 

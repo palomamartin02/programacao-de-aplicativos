@@ -13,7 +13,7 @@ def cadastrar_professsor(nome, cpf):
         )
     ''')
 
-# Faltou colocar UNIQUE NOT NULL no cpf 
+# Erro: Faltou colocar UNIQUE NOT NULL no cpf 
 
 # CODIGO CORRIGIDO 
 

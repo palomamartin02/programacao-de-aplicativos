@@ -23,7 +23,7 @@ def criar_tabela():
     conexao.commit()
     conexao.close()
 
-# faltou criar a tabela 'escolas' antes da tabela 'series', pois a chave estrangeira precisa que a tabela de referência já exista.
+# Erro: faltou criar a tabela 'escolas' antes da tabela 'series', pois a chave estrangeira precisa que a tabela de referência já exista.
 
 
 # CODIGO CORRIGIDO
