@@ -13,8 +13,6 @@ def cadastrar_turma(nome, id_serie, id_prof):
 
 # CODIGO CORRIGIDO
 
-import sqlite3
-
 def cadastrar_turma(nome, id_serie, id_prof):
     conexao = sqlite3.connect('sistema_escola.db')
     cursor = conexao.cursor()

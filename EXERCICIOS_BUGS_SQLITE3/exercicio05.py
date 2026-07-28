@@ -20,8 +20,6 @@ def vincular_aluno_turma():
 
 # CODIGO CORRIGIDO
 
-import sqlite3
-
 def vincular_aluno_turma():
     nome = input("Nome do aluno: ")
 
@@ -40,7 +38,7 @@ def vincular_aluno_turma():
         conexao.commit()
         print("Aluno vinculado com sucesso!")
     except sqlite3.Error as e:
-        print("Erro no banco de dados: {e}")
+        print(f"Erro no banco de dados: {e}")
     finally:
         if conexao:
             conexao.close()

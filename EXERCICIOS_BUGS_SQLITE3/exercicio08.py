@@ -6,7 +6,7 @@ def cadastrar_professsor(nome, cpf):
 
 
     cursor.execute('''
-        CREAT TABLE IF NOT EXISTS professores (
+        CREATE TABLE IF NOT EXISTS professores (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome TEXT
             cpf TEXT  
@@ -17,17 +17,15 @@ def cadastrar_professsor(nome, cpf):
 
 # CODIGO CORRIGIDO 
 
-import sqlite3
-
 def cadastrar_professsor(nome, cpf):
     conexao = sqlite3.connect('sistema_escola.db')
     cursor = conexao.cursor()
 
 
     cursor.execute('''
-        CREAT TABLE IF NOT EXISTS professores (
+        CREATE TABLE IF NOT EXISTS professores (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome TEXT
-            cpf TEXT UNIQUE 
+            nome TEXT,
+            cpf TEXT UNIQUE NOT NULL, 
         )
     ''')

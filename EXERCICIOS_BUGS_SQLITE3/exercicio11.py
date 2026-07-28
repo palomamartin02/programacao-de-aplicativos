@@ -16,7 +16,7 @@ def listar_alunos_e_turma():
 
 # Erro: faltava a condição ON para ligar alunos e turmas corretamente.
 
-import sqlite3
+# CODIGO CORRIGIDO
 
 def listar_alunos_e_turma():
     conexao = sqlite3.connect('sistema_escola.db')

@@ -16,8 +16,6 @@ def cadastrar_serie_seguro(nome, id_escola):
 
 # CODIGO CORRIGIDO
 
-import sqlite3
-
 def cadastrar_serie_seguro(nome, id_escola):
     conexao = None
 

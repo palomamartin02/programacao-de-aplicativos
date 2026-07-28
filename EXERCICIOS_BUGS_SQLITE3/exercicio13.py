@@ -15,8 +15,6 @@ def verificar_registros():
 
 # CODIGO CORRIGIDO
 
-import sqlite3
-
 def verificar_registros():
     conexao = sqlite3.connect('sistema_escola.db')
     cursor = conexao.cursor()
