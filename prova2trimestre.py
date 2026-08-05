@@ -239,3 +239,81 @@ except sqlite3.Error as erro:
 
 
 conexao.close()
+
+
+
+
+
+# SIMULADO COMPLETO DE DEFESA TECNICA
+
+def inicializar_banco():
+    conexao = sqlite3.connect("hotelaria.db")
+    cursor = conexao.cursor()
+    cursor.execute("PRAGMA foreign_keys = ON")
+
+
+    try:
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS hoteis(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nome TEXT NOT NULL,
+                cidade TEXT NOT NULL
+            )
+        ''')
+    
+
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS quarto(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                numero INTEGER NOT NULL,
+                preco_diaria INTEGER NOT NULL,
+                id_hotel INTEGER NOT NULL,
+                FOREIGN KEY (id_hotel) REFERENCES hoteis(id)
+            )
+        ''')
+    
+        conexao.commit()
+        print("Banco de dados criado com sucesso!")
+
+    except sqlite3.Error as erro:
+        print("Erro ao criar o banco:", erro)
+
+    return conexao
+
+def cadastrar_quarto(conexao):
+    try:
+        numero = int(input("Número do quarto: "))
+        preco = float(input("Preço da diária: "))
+        id_hotel = int(input("ID do hotel: "))
+
+        cursor = conexao.cursor()
+        cursor.execute(
+            "INSERT INTO quarto (numero, preco_diaria, id_hotel) VALUES (?, ?, ?)", (numero, preco, id_hotel))
+    
+        conexao.commit()
+        print("Quarto cadastrado com sucesso!")
+
+    except ValueError:
+        print("Erro: digite números nos campos numéricos.")
+
+    except sqlite3.Error as erro:
+        print("Erro no banco:", erro)
+
+
+
+conexao = inicializar_banco()
+
+
+while True:
+    print("\n1 - Cadastrar quarto")
+    print("0 - Sair")
+
+    opcao = input("Escolha: ")
+
+    if opcao == "1":
+        cadastrar_quarto(conexao)
+    elif opcao == "0":
+        break
+
+conexao.close()
+print("Programa encerrado.")
