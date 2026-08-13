@@ -19,7 +19,7 @@ conexao.close()
 
 # BUSCAR
 
-   conexao = sqlite3.connect('escola_demonstracao.db')
+    conexao = sqlite3.connect('escola_demonstracao.db')
     cursor = conexao.cursor()
 
     id_aluno = int(input(" Qual seu ID: "))
