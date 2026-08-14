@@ -280,7 +280,7 @@ def menu():
             elif opcao == 8:
                 excluir_arena()
             elif opcao == 0:
-                print("\n1 - ENCERRANDO SISTEMA....")
+                print("\n ENCERRANDO SISTEMA....")
                 break
             else:
                 print("Opção inválida!")
