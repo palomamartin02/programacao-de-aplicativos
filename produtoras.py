@@ -1,5 +1,5 @@
 import sqlite3
-from produtoras import inicializar_banco, cadastrar_produtora, listar_produtoras, atualizar_produtora, excluir_produtora
+
 
 conexao = sqlite3.connect("show.db")
 conexao.execute("PRAGMA foreign_keys = ON;")

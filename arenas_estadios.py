@@ -1,5 +1,5 @@
 import sqlite3
-from arenas_estadios import cadastrar_arena, listar_arenas, atualizar_arena, excluir_arena
+
 
 
 conexao = sqlite3.connect("show.db")
