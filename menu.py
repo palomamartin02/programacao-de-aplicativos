@@ -1,7 +1,7 @@
 import sqlite3
 
-from produtoras import inicializar_banco, cadastrar_produtora, listar_produtoras, atualizar_produtora, excluir_produtora
-from arenas_estadios import cadastrar_arena, listar_arenas, atualizar_arena, excluir_arena
+from produtoras import inicializar_banco_produtoras, cadastrar_produtora, listar_produtoras, atualizar_produtora, excluir_produtora
+from arenas_estadios import inicializar_banco_arenas, cadastrar_arena, listar_arenas, atualizar_arena, excluir_arena
 
 
 def menu():
@@ -45,5 +45,5 @@ def menu():
         except ValueError:
             print("Digite um número válido!")
 
-inicializar_banco()
+inicializar_banco_produtoras()
 menu()

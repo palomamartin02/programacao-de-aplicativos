@@ -6,6 +6,25 @@ conexao = sqlite3.connect("show.db")
 conexao.execute("PRAGMA foreign_keys = ON;")
 cursor = conexao.cursor()
 
+def inicializar_banco_arenas():
+    try:
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS arenas_estadios(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                nome_local TEXT NOT NULL,
+                capacidade_maxima INTEGER NOT NULL,
+                id_produtora INTEGER NOT NULL,
+                FOREIGN KEY (id_produtora) REFERENCES produtoras(id)
+            )
+        ''')
+    
+        conexao.commit()
+        print("Banco de dados criado com sucesso!")
+
+    except sqlite3.Error as erro:
+        print("Erro ao criar o banco:", erro)
+
+    return conexao
 
 def cadastrar_arena():
     try:

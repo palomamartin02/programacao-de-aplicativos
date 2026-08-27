@@ -6,7 +6,7 @@ conexao.execute("PRAGMA foreign_keys = ON;")
 cursor = conexao.cursor()
 
 
-def inicializar_banco():
+def inicializar_banco_produtoras():
   
     try:
         cursor.execute('''
