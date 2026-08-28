@@ -1,5 +1,5 @@
 import sqlite3
-from banco import conectar
+from banco import conectar, inicializar_banco
 
 
 def cadastrar_escola():
@@ -89,3 +89,7 @@ def excluir_escola():
 
     except sqlite3.Error as erro:
         print("Erro:", erro)
+
+
+inicializar_banco()
+

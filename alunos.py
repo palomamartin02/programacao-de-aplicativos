@@ -78,3 +78,5 @@ def excluir_aluno(id):
 
     except sqlite3.Error as erro:
         print("Erro no banco:", erro)
+
+inicializar_banco()

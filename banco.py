@@ -49,3 +49,5 @@ def inicializar_banco():
 
     finally:
         conexao.close()
+
+inicializar_banco()

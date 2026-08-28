@@ -1,11 +1,17 @@
 import sqlite3
-from banco import conectar
+from banco import conectar, inicializar_banco
 
 
 def cadastrar_turma():
     nome_turma = input("Nome da turma: ")
 
     try:
+
+        conexao = sqlite3.connect("gestao_escolar.db")
+        conexao.execute("PRAGMA foreign_keys = ON")
+        cursor = conexao.cursor()
+
+
         id_escola = int(input("ID da escola: "))
     except ValueError:
         print("Digite um ID válido.")
@@ -35,7 +41,8 @@ def cadastrar_turma():
 
 def listar_turmas():
     try:
-        conexao = conectar()
+
+        conexao = sqlite3.connect("gestao_escolar.db")
         cursor = conexao.cursor()
 
         cursor.execute("SELECT * FROM turmas")
@@ -87,7 +94,8 @@ def excluir_turma():
         return
 
     try:
-        conexao = conectar()
+        conexao = sqlite3.connect("gestao_escolar.db")
+        conexao.execute("PRAGMA foreign_keys = ON")
         cursor = conexao.cursor()
 
         cursor.execute("DELETE FROM turmas WHERE id = ?", (id_turma,))
@@ -99,3 +107,5 @@ def excluir_turma():
 
     except sqlite3.Error as erro:
         print("Erro:", erro)
+
+inicializar_banco()
